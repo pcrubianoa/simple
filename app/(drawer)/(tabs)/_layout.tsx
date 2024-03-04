@@ -10,19 +10,19 @@ export default function TabLayout() {
       <Tabs.Screen
         name='(toptabs)'
         options={{
-          title: 'Top Tabs',
+          title: 'Mesas',
         }}
       />
       <Tabs.Screen
         name='index'
         options={{
-          title: 'Bottom',
+          title: 'Productos',
         }}
       />
       <Tabs.Screen
         name='two'
         options={{
-          title: 'Tabs',
+          title: 'Mi Perfil',
         }}
       />
       {/* === Excluded Screebs from bottom tabs === href: null */}
