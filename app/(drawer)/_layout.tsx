@@ -11,7 +11,7 @@ export default function Drawer_Layout() {
           drawerLabel: 'Pedidos', // This just make sense ! we cannot remove it so we might just use it.
           title: 'Pedidos',
           drawerLabelStyle: {
-            color: 'pink', // style it to make it standout from the rest items.
+            // color: 'pink', // style it to make it standout from the rest items.
           },
         }}
       />
