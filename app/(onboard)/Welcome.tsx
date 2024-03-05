@@ -7,8 +7,8 @@ export default function Welcome() {
       <Text style={styles.display}>Welcome</Text>
       <Text style={styles.paragraph}>Implement Welcome Logic to navigate to Login or Register</Text>
       <View style={{flexDirection: 'row'}}>
-      <Button title='Register' color='purple' onPress={() => router.replace('/(auth)/Register')} />
-      <Button title='Login' color='purple' onPress={() => router.replace('/(auth)/Login')} />
+      <Button title='Register' onPress={() => router.replace('/(auth)/Register')} />
+      <Button title='Login' onPress={() => router.replace('/(auth)/Login')} />
       </View>
     </View>
   );
@@ -19,15 +19,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'pink',
+    // backgroundColor: 'pink',
   },
   display: {
-    color: 'purple',
+    // color: 'purple',
     fontWeight: 'bold',
     fontSize: 48,
   },
   paragraph: {
-    color: 'purple',
+    // color: 'purple',
     fontSize: 14,
   },
 });

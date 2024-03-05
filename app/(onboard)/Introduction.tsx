@@ -6,7 +6,7 @@ export default function Introduction() {
     <View style={styles.container}>
       <Text style={styles.display}>Bienvenido</Text>
       <Text style={styles.paragraph}>Test Expo Router V3 - Drawer + Tabs</Text>
-      <Button title='Ingresar' color='purple' onPress={()=> router.replace('/Welcome')} />
+      <Button title='Ingresar' onPress={()=> router.replace('/Welcome')} />
     </View>
   );
 }
@@ -16,15 +16,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'pink',
+    // backgroundColor: 'pink',
   },
   display: {
-    color: 'purple',
+    // color: 'purple',
     fontWeight: 'bold',
     fontSize: 38,
   },
   paragraph: {
-    color: 'purple',
+    // color: 'purple',
     fontSize: 14,
     marginBottom: 10
   },
