@@ -9,7 +9,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name='(toptabs)'
+        name='mesas'
         options={{
           title: 'Mesas',
           tabBarIcon: ({ size, color }) => (

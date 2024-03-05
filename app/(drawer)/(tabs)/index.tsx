@@ -8,7 +8,7 @@ export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab (index)</Text>
+      <Text style={styles.title}>Productos</Text>
       <Button title='Open Modal' color='white' onPress={() => router.push('/modal')} />
       <Button title='Toggle Drawer' color='white' onPress={() => navigation.toggleDrawer()} />
     </View>

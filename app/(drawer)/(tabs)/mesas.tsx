@@ -3,12 +3,12 @@ import { Button, StyleSheet } from 'react-native';
 import { router, useNavigation } from 'expo-router';
 import { Text, View } from 'react-native';
 
-export default function ToptabOne() {
+export default function TabMesasScreen() {
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>A</Text>
+      <Text style={styles.title}>Lista de Mesas</Text>
       <Button title='Open Modal' color='white' onPress={() => router.push('/modal')} />
       <Button title='Toggle Drawer' color='white' onPress={() => navigation.toggleDrawer()} />
     </View>
@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor:'grey'
   },
   title: {
     fontSize: 20,
