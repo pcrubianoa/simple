@@ -9,8 +9,8 @@ export default function TabMesasScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Lista de Mesas</Text>
-      <Button title='Open Modal' color='white' onPress={() => router.push('/modal')} />
-      <Button title='Toggle Drawer' color='white' onPress={() => navigation.toggleDrawer()} />
+      {/* <Button title='Open Modal' color='white' onPress={() => router.push('/modal')} />
+      <Button title='Toggle Drawer' color='white' onPress={() => navigation.toggleDrawer()} /> */}
     </View>
   );
 }

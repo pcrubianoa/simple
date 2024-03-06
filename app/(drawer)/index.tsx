@@ -5,7 +5,7 @@ import { Text, View } from 'react-native';
 export default function DrawerOne() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sincronización (index)</Text>
+      <Text style={styles.title}>Sincronización</Text>
     </View>
   );
 }

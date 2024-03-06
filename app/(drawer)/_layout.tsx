@@ -12,7 +12,7 @@ export default function Drawer_Layout() {
           drawerLabel: 'Pedidos', // This just make sense ! we cannot remove it so we might just use it.
           title: 'PEDIDOS',
           drawerIcon: ({ focused, color, size }) => (
-            <AntDesign name="pptfile1" size={24} color="black" />
+            <AntDesign name="home" size={24} color="black" />
           ),
           drawerLabelStyle: {
             // color: 'pink', // style it to make it standout from the rest items.
@@ -26,7 +26,7 @@ export default function Drawer_Layout() {
           drawerLabel: 'Sincronización',
           title: 'SINCRONIZACIÓN',
           drawerIcon: ({ focused, color, size }) => (
-            <AntDesign name="pptfile1" size={24} color="black" />
+            <AntDesign name="retweet" size={24} color="black" />
           ),
         }}
       />
@@ -36,7 +36,7 @@ export default function Drawer_Layout() {
           drawerLabel: 'Productos',
           title: 'PRODUCTOS',
           drawerIcon: ({ focused, color, size }) => (
-            <AntDesign name="pptfile1" size={24} color="black" />
+            <AntDesign name="tago" size={24} color="black" />
           ),
         }}
       />
@@ -46,7 +46,7 @@ export default function Drawer_Layout() {
           drawerLabel: 'Configuración',
           title: 'CONFIGURACIÓN',
           drawerIcon: ({ focused, color, size }) => (
-            <AntDesign name="pptfile1" size={24} color="black" />
+            <AntDesign name="setting" size={24} color="black" />
           ),
         }}
       />

@@ -5,7 +5,7 @@ import { Text, View } from 'react-native';
 export default function DrawerTwo() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Productos</Text>
+      <Text style={styles.title}>Lista de Productos</Text>
     </View>
   );
 }
