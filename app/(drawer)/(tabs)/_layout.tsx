@@ -13,8 +13,13 @@ export default function TabLayout() {
         options={{
           title: 'Mesas',
           tabBarIcon: ({ size, color }) => (
-            <AntDesign name="team" size={24} color="black" />
-          )
+            <AntDesign name="team" size={20} color="black" />
+          ),
+          tabBarLabelStyle: {
+            fontSize: 12,
+            color: 'black',
+            fontWeight: 'bold'
+          },
         }}
       />
       <Tabs.Screen
@@ -22,8 +27,13 @@ export default function TabLayout() {
         options={{
           title: 'Productos',
           tabBarIcon: ({ size, color }) => (
-            <AntDesign name="tago" size={24} color="black" />
-          )
+            <AntDesign name="tago" size={20} color="black" />
+          ),
+          tabBarLabelStyle: {
+            fontSize: 12,
+            color: 'black',
+            fontWeight: 'bold'
+          },
         }}
       />
       <Tabs.Screen
@@ -31,8 +41,13 @@ export default function TabLayout() {
         options={{
           title: 'Mi Perfil',
           tabBarIcon: ({ size, color }) => (
-            <AntDesign name="user" size={24} color="black" />
-          )
+            <AntDesign name="user" size={20} color="black" />
+          ),
+          tabBarLabelStyle: {
+            fontSize: 12,
+            color: 'black',
+            fontWeight: 'bold'
+          },
         }}
       />
       {/* === Excluded Screebs from bottom tabs === href: null */}

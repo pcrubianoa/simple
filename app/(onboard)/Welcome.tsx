@@ -8,7 +8,7 @@ export default function Welcome() {
       <Text style={styles.paragraph}>Implement Welcome Logic to navigate to Login or Register</Text>
       <View style={{flexDirection: 'row'}}>
       <Button title='Register' onPress={() => router.replace('/(auth)/Register')} />
-      <Button title='Login' onPress={() => router.replace('/(auth)/Login')} />
+      <Button title='Login' onPress={() => router.replace('/mesas')} />
       </View>
     </View>
   );
