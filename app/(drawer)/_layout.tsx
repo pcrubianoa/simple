@@ -7,21 +7,27 @@ export default function Drawer_Layout() {
   return (
     <Drawer>
       <Drawer.Screen
-        name='(tabs)' // This is the name of the page and must match the url from root
+        name='(tabs)'
         options={{
-          drawerLabel: 'Pedidos', // This just make sense ! we cannot remove it so we might just use it.
-          title: 'PEDIDOS',
+          drawerLabel: 'Pedidos',
+          title: 'TOMA DE PEDIDOS',
           drawerIcon: ({ focused, color, size }) => (
             <AntDesign name="home" size={24} color="black" />
           ),
+          headerStyle: {
+            backgroundColor: '#1973e7',
+          },
+          headerTitleStyle: {
+            color: 'white'
+          },
           drawerLabelStyle: {
-            // color: 'pink', // style it to make it standout from the rest items.
+            //color: 'white',
           },
         }}
       />
 
       <Drawer.Screen
-        name='index' // This is the name of the page and must match the url from root
+        name='index'
         options={{
           drawerLabel: 'Sincronización',
           title: 'SINCRONIZACIÓN',
@@ -31,7 +37,7 @@ export default function Drawer_Layout() {
         }}
       />
       <Drawer.Screen
-        name='DrawerTwo' // This is the name of the page and must match the url from root
+        name='DrawerTwo'
         options={{
           drawerLabel: 'Productos',
           title: 'PRODUCTOS',
