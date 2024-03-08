@@ -17,11 +17,10 @@ export function SessionProvider(props: { children: React.ReactNode }) {
             .then(data => {
               if (data.success) {
                 setSession(data.apiKey);
-
               }
             });
 
-          router.push("/pedidos/mesas");
+          //router.push("/Introduction");
         },
         signOut: () => {
           setSession(null);
