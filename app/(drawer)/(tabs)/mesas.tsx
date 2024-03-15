@@ -87,19 +87,19 @@ export default function TabMesasScreen() {
 
   type ItemProps = {title: string};
 
-  const handlePress = () => {
-    console.log("Hedef");
+  const handlePress = (i) => {
+    console.log(i.value);
   };
 
   const Item = ({title}: ItemProps) => (
-    <View style={styles.item}>
       <Pressable onPress={handlePress}>
-        <Text style={styles.title}>{title}</Text>
-        {/* <AntDesign name="home" size={24} color="black"/> */}
-        <Text>$ 24.000</Text>
-        <Text>LIBRE</Text>
+        <View style={styles.item}>
+          <Text style={styles.title}>{title}</Text>
+          {/* <AntDesign name="home" size={24} color="black"/> */}
+          <Text>$ 24.000</Text>
+          <Text>LIBRE</Text>
+        </View>
       </Pressable>
-    </View>
   );
 
   return (
@@ -137,11 +137,14 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: 'white',
+    flex: 1,
+    alignItems: 'center',
+    width: 140,
     borderWidth: 1,
-    padding: 30,
-    borderRadius: 5,
+    padding: 20,
+    borderRadius: 50,
     borderColor: '#ddd',
-    shadowOpacity: 1,
+    // shadowOpacity: 1,
     marginVertical: 5,
     marginHorizontal: 5,
   },

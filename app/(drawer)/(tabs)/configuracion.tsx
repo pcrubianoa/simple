@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 import { router } from 'expo-router';
 import { useState } from 'react';
 
-export default function TabPerfilScreen() {
+export default function TabConfiguracionScreen() {
   const [param, setParam] = useState('')
 
   return (

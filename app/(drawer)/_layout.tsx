@@ -25,7 +25,6 @@ export default function Drawer_Layout() {
           },
         }}
       />
-
       <Drawer.Screen
         name='index'
         options={{
