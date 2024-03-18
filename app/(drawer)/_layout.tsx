@@ -1,11 +1,12 @@
 import React from 'react';
 import { Drawer } from 'expo-router/drawer';
 import { Feather, EvilIcons, SimpleLineIcons, AntDesign  } from '@expo/vector-icons';
+import CustomDrawerContent from '@/components/CustomDrawerContent';
 
 export default function Drawer_Layout() {
 
   return (
-    <Drawer>
+    <Drawer drawerContent={ CustomDrawerContent }>
       <Drawer.Screen
         name='(tabs)'
         options={{

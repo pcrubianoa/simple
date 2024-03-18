@@ -24,6 +24,7 @@ export function SessionProvider(props: { children: React.ReactNode }) {
         },
         signOut: () => {
           setSession(null);
+          router.push("/Introduction");
         },
         session,
         isLoading,

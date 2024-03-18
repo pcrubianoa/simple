@@ -21,6 +21,7 @@ export default function Introduction() {
     <View style={styles.container}>
       <Image source={require('@/assets/images/logo.png')} style={{width: 185, height: 80}} />
       <Text style={styles.title}>Hola, Bienvenido</Text>
+      <Text style={styles.subTitle}>BARES Y RESTAURANTES</Text>
       <View style={{ marginTop: 5, marginBottom: 20 }}>
           <Text style={{ fontWeight: "500" }} >
             Ingresa a tu cuenta
@@ -85,6 +86,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginTop: 30
+  },
+  subTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,

@@ -2,8 +2,11 @@ import { Text, Pressable, Image, StyleSheet, SafeAreaView } from 'react-native';
 import React from 'react';
 import { View } from '@/components/Themed';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import { useSession } from "@/context/authentication/authentication.context";
 
 export default function CustomDrawerContent(props:any) {
+  const { signOut } = useSession();
+
   return (
     <SafeAreaView style={{ flex:1 }}>
       <View style={{ backgroundColor: '#1873e7', height: 120 }}>
@@ -13,11 +16,16 @@ export default function CustomDrawerContent(props:any) {
       <DrawerContentScrollView {...props}>
         <Text style={{ paddingHorizontal: 20, color: 'gray' }}>Menú principal</Text>
         <DrawerItemList {...props}/>
+        <Pressable style={{ padding: 20 }} onPress={async () => {
+            await signOut();
+          }}>
+          <Text style={{ fontSize: 15, color: 'gray' }}>Cessar Sesión</Text>
+        </Pressable>
       </DrawerContentScrollView>
       <Pressable style={{ padding: 20 }}>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-        <Text style={{ fontSize: 10, color: 'gray' }}>Copyright @ Logis ERP 2024</Text>
-        <Text style={{ fontSize: 10, color: 'gray' }}>Todos los derechos reservados</Text>
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+          <Text style={{ fontSize: 10, color: 'gray' }}>Copyright @ Logis ERP 2024</Text>
+         <Text style={{ fontSize: 10, color: 'gray' }}>Todos los derechos reservados</Text>
         {/* <View style={{ padding: 20 }}>
           <Image style={styles.stretch} source={require('../assets/images/logo.png')}/>
         </View> */}
