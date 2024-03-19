@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     width: 140,
     borderWidth: 1,
     padding: 20,
-    borderRadius: 50,
+    borderRadius: 10,
     borderColor: '#ddd',
     // shadowOpacity: 1,
     marginVertical: 5,
