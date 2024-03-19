@@ -17,6 +17,7 @@ export function SessionProvider(props: { children: React.ReactNode }) {
             .then(data => {
               if (data.success) {
                 setSession(data.apiKey);
+                router.push("/(drawer)/(tabs)/mesas");
               }
             });
 
@@ -24,7 +25,7 @@ export function SessionProvider(props: { children: React.ReactNode }) {
         },
         signOut: () => {
           setSession(null);
-          router.push("/Introduction");
+          router.push("/(onboard)/Introduction");
         },
         session,
         isLoading,
