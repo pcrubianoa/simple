@@ -7,7 +7,7 @@ import { db } from '@/services/db.service';
 
 export function SessionProvider(props: { children: React.ReactNode }) {
   const [[isLoading, session], setSession] = useStorageState("session");
-
+  
   return (
     <AuthContext.Provider
       value={{
@@ -23,9 +23,10 @@ export function SessionProvider(props: { children: React.ReactNode }) {
 
           //router.push("/Introduction");
         },
-        signOut: () => {
+        signOut: async () => {
+          //setSession(null);
           setSession(null);
-          router.push("/(onboard)/Introduction");
+          // router.push("/(onboard)/Introduction");
         },
         session,
         isLoading,

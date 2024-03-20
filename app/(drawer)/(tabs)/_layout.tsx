@@ -5,7 +5,7 @@ import { Feather, EvilIcons, SimpleLineIcons, MaterialIcons, AntDesign  } from '
 export default function TabLayout() {
   
   const segment = useSegments();
-  console.log(segment[2]);
+  // console.log(segment[2]);
 
   return (
     <Tabs

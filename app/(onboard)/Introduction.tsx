@@ -13,10 +13,6 @@ export default function Introduction() {
   const emailRef = useRef("");
   const passwordRef = useRef("");
 
-  if(values?.session) {
-    return <Redirect href="(drawer)" />;
-  }
-
   return (
     <View style={styles.container}>
       <Image source={require('@/assets/images/logo.png')} style={{width: 185, height: 80}} />
