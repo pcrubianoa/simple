@@ -1,10 +1,13 @@
 import { Pressable, StyleSheet, TextInput, Image, TouchableOpacity } from "react-native";
 
+import * as React from "react"
 import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
 import { router, Redirect } from "expo-router";
 import { useSession } from "@/context/authentication/authentication.context";
 import { useRef, useState } from "react";
+
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 
 export default function Introduction() {
   const values = useSession();
@@ -12,6 +15,26 @@ export default function Introduction() {
 
   const emailRef = useRef("");
   const passwordRef = useRef("");
+
+  type Inputs = {
+    email: string,
+    password: string
+  }
+
+  const { control, register, handleSubmit, formState: { errors } } = useForm<Inputs>({
+    defaultValues: {
+      email: "",
+      password: ""
+    },
+  });
+
+  const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
+    console.log(data)
+      signIn(
+        data.email,
+        data.password
+      );
+  }
 
   return (
     <View style={styles.container}>
@@ -25,37 +48,54 @@ export default function Introduction() {
       </View>
       <View>
           <Text style={styles.label}>Usuario</Text>
-          <TextInput
-            placeholder="usuario.empresa"
-            placeholderTextColor="lightgray"
-            autoCapitalize="none"
-            nativeID="email"
-            onChangeText={(text) => {
-              emailRef.current = text;
-            }}
-            style={styles.textInput}
+          <Controller
+            defaultValue=""
+            control={control}
+            render={({field: {onChange, value}, }) => (
+              <TextInput
+              {...register("email")}
+              placeholder="usuario.empresa"
+              placeholderTextColor="lightgray"
+              autoCapitalize="none"
+              nativeID="email"
+              onChangeText={(value) => {
+                onChange(value);
+                emailRef.current = value;
+              }}
+              style={styles.textInput}
+              />
+            )}
+            name="email"
+            rules={{ required: true }}
           />
+
         </View>
+        {errors.email && <Text style={{color:'red', marginTop: -10}}>Usuario Requerido</Text>}
         <View>
           <Text style={styles.label}>Contraseña</Text>
+          <Controller
+            defaultValue=""
+            control={control}
+            render={({field: {onChange, value}, }) => (
           <TextInput
             placeholder="contraseña"
             placeholderTextColor="lightgray"
             secureTextEntry={true}
             nativeID="password"
-            onChangeText={(text) => {
-              passwordRef.current = text;
+            onChangeText={(value) => {
+              onChange(value);
+              passwordRef.current = value;
             }}
             style={styles.textInput}
           />
+          )}
+          name="password"
+          rules={{ required: true }}
+        />
         </View>
+        {errors.password && <Text style={{color:'red', marginTop: -10}}>Clave Requerida</Text>}
         <TouchableOpacity
-          onPress={async () => {
-            await signIn(
-              emailRef.current,
-              passwordRef.current
-            );
-          }}
+          onPress={handleSubmit(onSubmit)}
           style={styles.button}
         >
           <Text style={styles.buttonText}>Ingresar</Text>
