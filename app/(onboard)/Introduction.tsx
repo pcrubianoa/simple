@@ -71,7 +71,7 @@ export default function Introduction() {
           />
 
         </View>
-        {errors.email && <Text style={{color:'red', marginTop: -10}}>Usuario Requerido</Text>}
+        {errors.email && <Text style={{ color:'red', marginTop: -10, fontWeight: 900 }}>Usuario Requerido</Text>}
         <View>
           <Text style={styles.label}>Contraseña</Text>
           <Controller
@@ -94,7 +94,7 @@ export default function Introduction() {
           rules={{ required: true }}
         />
         </View>
-        {errors.password && <Text style={{color:'red', marginTop: -10}}>Clave Requerida</Text>}
+        {errors.password && <Text style={{ color:'red', marginTop: -10, fontWeight: 900 }}>Clave Requerida</Text>}
         <TouchableOpacity
           onPress={handleSubmit(onSubmit)}
           style={styles.button}
