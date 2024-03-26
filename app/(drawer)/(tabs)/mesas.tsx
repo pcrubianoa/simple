@@ -4,11 +4,13 @@ import { router, useNavigation } from 'expo-router';
 import { Text, View, FlatList, Pressable } from 'react-native';
 import { Feather, EvilIcons, SimpleLineIcons, AntDesign  } from '@expo/vector-icons';
 
+import { Link } from 'expo-router';
+
 export default function TabMesasScreen() {
   const navigation = useNavigation();
   const DATA = [
     {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+      id: 1,
       title: 'MESA 01',
     },
     {
@@ -85,13 +87,16 @@ export default function TabMesasScreen() {
     },
   ];
 
-  type ItemProps = {title: string};
+  type ItemProps = {
+    title: string,
+    id: number
+  };
 
   const handlePress = (i) => {
     console.log(i.value);
   };
 
-  const Item = ({title}: ItemProps) => (
+  const Item = ({title, id}: ItemProps) => (
       <Pressable onPress={handlePress}>
         <View style={styles.item}>
           <Text style={styles.title}>{title}</Text>
@@ -99,6 +104,13 @@ export default function TabMesasScreen() {
           <Text>$ 24.000</Text>
           <Text>LIBRE</Text>
         </View>
+        <Link
+          href={{
+            pathname: "/nested/[param]",
+            params: { param: id }
+          }}>
+          View user
+        </Link>
       </Pressable>
   );
 

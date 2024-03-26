@@ -7,6 +7,7 @@ export default function PostDetails() {
 
   return (
     <View style={styles.container}>
+      <Text>Mesa</Text>
       <Button title='back' onPress={()=> router.back()}/>
       <Text style={styles.title}>{param}</Text>
     </View>
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 48,
     fontWeight: 'bold',
-    color:'yellow',
+    color:'black',
   },
   separator: {
     marginVertical: 30,

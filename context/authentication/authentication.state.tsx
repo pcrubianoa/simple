@@ -7,7 +7,7 @@ import { db } from '@/services/db.service';
 
 export function SessionProvider(props: { children: React.ReactNode }) {
   const [[isLoading, session], setSession] = useStorageState("session");
-  
+
   return (
     <AuthContext.Provider
       value={{

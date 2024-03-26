@@ -3,9 +3,10 @@ import { Pressable, StyleSheet, TextInput, Image, TouchableOpacity } from "react
 import * as React from "react"
 import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
-import { router, Redirect } from "expo-router";
 import { useSession } from "@/context/authentication/authentication.context";
 import { useRef, useState } from "react";
+
+import { router, Redirect } from "expo-router";
 
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 

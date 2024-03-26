@@ -12,7 +12,7 @@ function openDatabase() {
     };
   }
 
-  const db = SQLite.openDatabase("bares.db");
+  const db = SQLite.openDatabase("logis-bares.db");
   return db;
 }
 
