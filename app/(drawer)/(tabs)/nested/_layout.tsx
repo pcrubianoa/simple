@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Stack } from 'expo-router'
 
-export default function Posts_layout() {
+export default function Mesa_layout() {
   return (
     <Stack>
         <Stack.Screen name='[param]' options={{

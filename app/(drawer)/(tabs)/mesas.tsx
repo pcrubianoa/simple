@@ -14,75 +14,75 @@ export default function TabMesasScreen() {
       title: 'MESA 01',
     },
     {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      id: 2,
       title: 'MESA 02',
     },
     {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      id: 3,
       title: 'MESA 03',
     },
     {
-      id: '58694a0f-3da1-471f-bd96-145271e29d72',
+      id: 4,
       title: 'MESA 04',
     },
     {
-      id: '58694a0f-3da1-471f-bd96-145371e29d72',
+      id: 5,
       title: 'MESA 05',
     },
     {
-      id: '58694a0f-3da1-471f-b96-145271e29d72',
+      id: 6,
       title: 'MESA 06',
     },
     {
-      id: '5894a0f-3da1-471f-bd96-145371e29d72',
+      id: 7,
       title: 'MESA 07',
     },
     {
-      id: '58694a0f-3da1-471f-b6-145271e29d72',
+      id: 8,
       title: 'MESA 08',
     },
     {
-      id: '5894a0f-3d1-471f-bd96-145371e29d72',
+      id: 9,
       title: 'MESA 09',
     },
     {
-      id: '58694a0f-3da1-471f-b6-14271e29d72',
+      id: 10,
       title: 'MESA 10',
     },
     {
-      id: '5894a0f-31-471f-bd96-145371e29d72',
+      id: 11,
       title: 'MESA 11',
     },
     {
-      id: '58694a0f-3da1-471f-b6-4271e29d72',
+      id: 12,
       title: 'MESA 12',
     },
     {
-      id: '5894a0f-31-71f-bd96-145371e29d72',
+      id: 13,
       title: 'MESA 13',
     },
     {
-      id: '5869a0f-3da1-471f-b6-4271e29d72',
+      id: 14,
       title: 'MESA 14',
     },
     {
-      id: '5894a0-31-71f-bd96-145371e29d72',
+      id: 15,
       title: 'MESA 15',
     },
     {
-      id: '58694a0f-3da1-471f-b6-4271e29d72',
+      id: 16,
       title: 'MESA 16',
     },
     {
-      id: '5894a0f-31-71f-bd96-145371e29d72',
+      id: 17,
       title: 'MESA 17',
     },
     {
-      id: '5869a0f-3da1-471f-b6-4271e29d72',
+      id: 18,
       title: 'MESA 18',
     },
     {
-      id: '5894a0-31-71f-bd96-145371e29d72',
+      id: 19,
       title: 'MESA 19',
     },
   ];
@@ -120,7 +120,7 @@ export default function TabMesasScreen() {
       <FlatList
         data={DATA}
         numColumns={3}
-        renderItem={({item}) => <Item title={item.title} />}
+        renderItem={({item}) => <Item title={item.title} id={item.id} />}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}

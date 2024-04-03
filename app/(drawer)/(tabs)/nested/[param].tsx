@@ -2,14 +2,14 @@ import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { router, useLocalSearchParams } from 'expo-router'
 
-export default function PostDetails() {
+export default function MesaDetails() {
   const { param } = useLocalSearchParams()
 
   return (
     <View style={styles.container}>
-      <Text>Mesa</Text>
+      <Text>Mesa {param}</Text>
       <Button title='back' onPress={()=> router.back()}/>
-      <Text style={styles.title}>{param}</Text>
+      {/* <Text style={styles.title}>{param}</Text> */}
     </View>
   );
 }
