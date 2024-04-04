@@ -7,8 +7,7 @@ export default function MesaDetails() {
 
   return (
     <View style={styles.container}>
-      <Text>Mesa {param}</Text>
-      <Button title='back' onPress={()=> router.back()}/>
+      <Text style={styles.title}>Mesa {param}</Text>
       {/* <Text style={styles.title}>{param}</Text> */}
     </View>
   );
@@ -18,10 +17,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 10,
+    width: '100%'
   },
   title: {
-    fontSize: 48,
+    fontSize: 20,
     fontWeight: 'bold',
     color:'black',
   },

@@ -97,26 +97,23 @@ export default function TabMesasScreen() {
   };
 
   const Item = ({title, id}: ItemProps) => (
-      <Pressable onPress={handlePress}>
-        <View style={styles.item}>
-          <Text style={styles.title}>{title}</Text>
-          {/* <AntDesign name="home" size={24} color="black"/> */}
-          <Text>$ 24.000</Text>
-          <Text>LIBRE</Text>
-        </View>
-        <Link
-          href={{
-            pathname: "/nested/[param]",
-            params: { param: id }
-          }}>
-          View user
-        </Link>
-      </Pressable>
+    <Link
+      style={{ margin:5 }}
+      href={{
+        pathname: "/nested/[param]",
+        params: { param: id }
+      }}>
+      <View style={styles.item}>
+        <Text style={styles.title}>{title}</Text>
+        <Text>$ 24.000</Text>
+        <Text>LIBRE</Text>
+      </View>
+    </Link>
   );
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Lista de Mesas</Text>
+      <Text style={styles.title}>LISTA DE MESAS</Text>
       <FlatList
         data={DATA}
         numColumns={3}
