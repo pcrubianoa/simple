@@ -3,6 +3,7 @@ import React from 'react';
 import { View } from '@/components/Themed';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { useSession } from "@/context/authentication/authentication.context";
+import { Feather, EvilIcons, SimpleLineIcons, AntDesign  } from '@expo/vector-icons';
 
 export default function CustomDrawerContent(props:any) {
   const { signOut } = useSession();
@@ -19,7 +20,10 @@ export default function CustomDrawerContent(props:any) {
         <Pressable style={{ padding: 20 }} onPress={async () => {
             await signOut();
           }}>
-          <Text style={{ fontSize: 15, color: 'gray' }}>Cessar Sesión</Text>
+          <View style={{ flex: 1, flexDirection: "row" }}>
+            <AntDesign name="logout" size={24} color="black" />
+            <Text style={{ fontSize: 15, color: 'gray', paddingLeft: 28 }}>Cerrar Sesión</Text>
+          </View>
         </Pressable>
       </DrawerContentScrollView>
       <Pressable style={{ padding: 20 }}>

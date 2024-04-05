@@ -23,7 +23,6 @@ async function createTables() {
     tx.executeSql(
       `CREATE TABLE IF NOT EXISTS configuracion (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-
         );`
     );
   });

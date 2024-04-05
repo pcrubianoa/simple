@@ -34,6 +34,12 @@ export default function Drawer_Layout() {
           drawerIcon: ({ focused, color, size }) => (
             <AntDesign name="retweet" size={24} color="black" />
           ),
+          headerStyle: {
+            backgroundColor: '#1973e7',
+          },
+          headerTitleStyle: {
+            color: 'white'
+          },
         }}
       />
       <Drawer.Screen
@@ -44,6 +50,12 @@ export default function Drawer_Layout() {
           drawerIcon: ({ focused, color, size }) => (
             <AntDesign name="tago" size={24} color="black" />
           ),
+          headerStyle: {
+            backgroundColor: '#1973e7',
+          },
+          headerTitleStyle: {
+            color: 'white'
+          },
         }}
       />
       <Drawer.Screen
@@ -54,6 +66,12 @@ export default function Drawer_Layout() {
           drawerIcon: ({ focused, color, size }) => (
             <AntDesign name="setting" size={24} color="black" />
           ),
+          headerStyle: {
+            backgroundColor: '#1973e7',
+          },
+          headerTitleStyle: {
+            color: 'white'
+          },
         }}
       />
     </Drawer>
