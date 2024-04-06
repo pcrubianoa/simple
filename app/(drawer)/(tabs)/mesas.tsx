@@ -1,10 +1,13 @@
-import { Button, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { router, useNavigation } from 'expo-router';
 import { Text, View, FlatList, Pressable } from 'react-native';
 import { Feather, EvilIcons, SimpleLineIcons, AntDesign  } from '@expo/vector-icons';
 
 import { Link } from 'expo-router';
+
+import { Button } from 'react-native-paper';
+import { Avatar, Card } from 'react-native-paper';
 
 export default function TabMesasScreen() {
   const navigation = useNavigation();
