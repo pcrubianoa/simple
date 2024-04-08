@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button, Menu, Divider, PaperProvider } from 'react-native-paper';
-
+import { List, MD3Colors } from 'react-native-paper';
 
 export default function DrawerOne() {
   const [visible, setVisible] = React.useState(false);
@@ -23,11 +23,26 @@ export default function DrawerOne() {
           visible={visible}
           onDismiss={closeMenu}
           anchor={<Button mode="contained" onPress={openMenu}>SINCRONIZAR</Button>}>
-          <Menu.Item onPress={() => {}} title="Item 1" />
-          <Menu.Item onPress={() => {}} title="Item 2" />
-          <Divider />
-          <Menu.Item onPress={() => {}} title="Item 3" />
+          <View style={{ flexDirection: 'column', justifyContent: 'flex-end' }}>
+            <Menu.Item onPress={() => {}} title="TODO" />
+            <Menu.Item onPress={() => {}} title="PRODUCTOS" />
+            <Divider />
+            <Menu.Item onPress={() => {}} title="MESAS" />
+          </View>
         </Menu>
+      </View>
+      <View>
+      <List.Section>
+        <List.Item
+          title="First Item"
+          right={() => <Text>12</Text>}
+          left={() => <List.Icon icon="folder" />}
+        />
+        <List.Item
+          title="Second Item"
+          left={() => <List.Icon color={MD3Colors.tertiary70} icon="folder" />}
+        />
+  </List.Section>
       </View>
     </View>
   );
