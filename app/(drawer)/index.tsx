@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Button, Menu, Divider, PaperProvider } from 'react-native-paper';
-import { List, MD3Colors } from 'react-native-paper';
+import { List, Text, Icon, MD3Colors } from 'react-native-paper';
 
 export default function DrawerOne() {
   const [visible, setVisible] = React.useState(false);
@@ -31,18 +31,21 @@ export default function DrawerOne() {
           </View>
         </Menu>
       </View>
-      <View>
-      <List.Section>
-        <List.Item
-          title="First Item"
-          right={() => <Text>12</Text>}
-          left={() => <List.Icon icon="folder" />}
+      <View style={{ flex:1, flexDirection: 'row', justifyContent: 'space-around' }}>
+        <View>
+        <Icon
+          source="tag-outline"
+          color={MD3Colors.error50}
+          size={20}
         />
-        <List.Item
-          title="Second Item"
-          left={() => <List.Icon color={MD3Colors.tertiary70} icon="folder" />}
-        />
-  </List.Section>
+        </View>
+        <View>
+          <Text>Confiuración</Text>
+          <Text style={{ fontSize: 12 }}>Tablas comunes</Text>
+        </View>
+        <View style={{ alignItems: 'center' }}>
+          <Text>12</Text>
+        </View>
       </View>
     </View>
   );
@@ -51,7 +54,7 @@ export default function DrawerOne() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    // alignItems: 'center',
     // justifyContent: 'center',
   },
   title: {
