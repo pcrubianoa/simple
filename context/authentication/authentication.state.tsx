@@ -17,7 +17,7 @@ export function SessionProvider(props: { children: React.ReactNode }) {
             .then(data => {
               if (data.success) {
                 setSession(data.apiKey);
-                router.push("/(drawer)/(tabs)/mesas");
+                router.push("/(drawer)/Sincronizacion");
               }
             });
 

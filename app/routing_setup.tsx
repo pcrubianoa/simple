@@ -8,7 +8,7 @@ export default function Routing() {
   // Define your screen routes here
   const onboard_screen = '/(onboard)/Introduction';
   const landing_screen = '/(onboard)/Welcome';
-  const home_screen = '/(drawer)/(tabs)/mesas';
+  const home_screen = '/(drawer)/Sincronizacion';
   const home_group = '(drawer)';
 
   // ======= !IMPORTANT: Replace these with your actual authentication and loading logic

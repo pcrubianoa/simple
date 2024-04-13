@@ -27,7 +27,7 @@ export default function Drawer_Layout() {
         }}
       />
       <Drawer.Screen
-        name='index'
+        name='Sincronizacion'
         options={{
           drawerLabel: 'Sincronización',
           title: 'SINCRONIZACIÓN',
@@ -43,7 +43,7 @@ export default function Drawer_Layout() {
         }}
       />
       <Drawer.Screen
-        name='DrawerTwo'
+        name='Productos'
         options={{
           drawerLabel: 'Productos',
           title: 'PRODUCTOS',

@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Button, Menu, Divider, PaperProvider } from 'react-native-paper';
 import { List, Text, Icon, MD3Colors } from 'react-native-paper';
 
-export default function DrawerOne() {
+export default function Sincronizacion() {
   const [visible, setVisible] = React.useState(false);
 
   const openMenu = () => setVisible(true);

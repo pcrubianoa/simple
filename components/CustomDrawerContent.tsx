@@ -1,4 +1,4 @@
-import { Text, Pressable, Image, StyleSheet, SafeAreaView } from 'react-native';
+import { Text, Pressable, Image, StyleSheet, SafeAreaView, Alert } from 'react-native';
 import React from 'react';
 import { View } from '@/components/Themed';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
@@ -17,9 +17,13 @@ export default function CustomDrawerContent(props:any) {
       <DrawerContentScrollView {...props}>
         <Text style={{ paddingHorizontal: 20, color: 'gray' }}>Menú principal</Text>
         <DrawerItemList {...props}/>
-        <Pressable style={{ padding: 20 }} onPress={async () => {
-            await signOut();
-          }}>
+        <Pressable style={{ padding: 20 }} onPress={
+          async () => {
+            if (confirm("¿Seguro desea salir?") == true) {
+              await signOut();
+            }
+          }
+          }>
           <View style={{ flex: 1, flexDirection: "row" }}>
             <AntDesign name="logout" size={24} color="black" />
             <Text style={{ fontSize: 15, color: 'gray', paddingLeft: 28 }}>Cerrar Sesión</Text>

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function DrawerTwo() {
+export default function Productos() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Lista de Productos</Text>
