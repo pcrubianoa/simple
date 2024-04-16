@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Button, Menu, Divider, PaperProvider } from 'react-native-paper';
-import { List, Text, Icon, MD3Colors } from 'react-native-paper';
+import { List, Text, Icon, MD3Colors, DataTable } from 'react-native-paper';
 
 export default function Sincronizacion() {
   const [visible, setVisible] = React.useState(false);
@@ -31,22 +31,37 @@ export default function Sincronizacion() {
           </View>
         </Menu>
       </View>
-      <View style={{ flex:1, flexDirection: 'row', justifyContent: 'space-around' }}>
-        <View>
-        <Icon
-          source="tag-outline"
-          color={MD3Colors.error50}
-          size={20}
-        />
-        </View>
-        <View>
-          <Text>Confiuración</Text>
-          <Text style={{ fontSize: 12 }}>Tablas comunes</Text>
-        </View>
-        <View style={{ alignItems: 'center' }}>
-          <Text>12</Text>
-        </View>
-      </View>
+      <DataTable>
+        <DataTable.Row>
+          <DataTable.Cell style={{ flex: 1, justifyContent: 'center' }}>
+          <Icon
+            source="camera"
+            color={MD3Colors.error50}
+            size={20}
+          />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <View style={{ flexDirection: 'column' }}>
+              <Text style={{ textAlign: 'left' }}>Familias</Text>
+              <Text style={{ textAlign: 'left', marginTop: 5 }}>Segunda línea</Text>
+            </View>
+          </DataTable.Cell>
+          <DataTable.Cell>
+              <Text style={{ textAlign: 'right' }}>20</Text>
+          </DataTable.Cell>
+        </DataTable.Row>
+        <DataTable.Row>
+          <DataTable.Cell style={{ flex: 1, justifyContent: 'center' }}>
+          <Icon
+            source="camera"
+            color={MD3Colors.error50}
+            size={20}
+          />
+          </DataTable.Cell>
+          <DataTable.Cell>Productos</DataTable.Cell>
+          <DataTable.Cell>200</DataTable.Cell>
+        </DataTable.Row>
+      </DataTable>
     </View>
   );
 }
