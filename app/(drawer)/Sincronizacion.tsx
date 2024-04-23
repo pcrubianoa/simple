@@ -7,9 +7,7 @@ export default function Sincronizacion() {
   const [visible, setVisible] = React.useState(false);
 
   const openMenu = () => setVisible(true);
-
   const closeMenu = () => setVisible(false);
-
 
   return (
     <View style={styles.container}>
@@ -31,36 +29,25 @@ export default function Sincronizacion() {
           </View>
         </Menu>
       </View>
-      <DataTable>
+      <DataTable style={{ marginTop: 50 }}>
         <DataTable.Row>
           <DataTable.Cell style={{ flex: 1, justifyContent: 'center' }}>
           <Icon
             source="camera"
-            color={MD3Colors.error50}
+            color={MD3Colors.primary0}
             size={20}
           />
           </DataTable.Cell>
           <DataTable.Cell>
-            <View style={{ flexDirection: 'column' }}>
+            <View style={{ flex: 1, flexDirection: 'column' }}>
               <Text style={{ textAlign: 'left' }}>Familias</Text>
-              <Text style={{ textAlign: 'left', marginTop: 5 }}>Segunda línea</Text>
+              <Text style={{ color: 'gray', textAlign: 'left', marginTop: 0 }}>16/05/2024 9:58:11 a.m.</Text>
             </View>
           </DataTable.Cell>
-          <DataTable.Cell>
-              <Text style={{ textAlign: 'right' }}>20</Text>
+          <DataTable.Cell style={{flex: 1}}>
+              <Text>20</Text>
           </DataTable.Cell>
-        </DataTable.Row>
-        <DataTable.Row>
-          <DataTable.Cell style={{ flex: 1, justifyContent: 'center' }}>
-          <Icon
-            source="camera"
-            color={MD3Colors.error50}
-            size={20}
-          />
-          </DataTable.Cell>
-          <DataTable.Cell>Productos</DataTable.Cell>
-          <DataTable.Cell>200</DataTable.Cell>
-        </DataTable.Row>
+          </DataTable.Row>
       </DataTable>
     </View>
   );
