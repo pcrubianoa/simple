@@ -19,9 +19,18 @@ export default function CustomDrawerContent(props:any) {
         <DrawerItemList {...props}/>
         <Pressable style={{ padding: 20 }} onPress={
           async () => {
-            if (confirm("¿Seguro desea salir?") == true) {
-              await signOut();
-            }
+            Alert.alert(
+              "Confirmación",
+              "¿Seguro desea salir?",
+              [
+                {
+                  text: "Cancelar",
+                  onPress: () => console.log("Cancel Pressed"),
+                  style: "cancel"
+                },
+                { text: "OK", onPress: async () => await signOut() }
+              ]
+            );
           }
           }>
           <View style={{ flex: 1, flexDirection: "row" }}>
