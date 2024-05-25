@@ -12,6 +12,9 @@ export default function Sincronizacion() {
 
   return (
     <View style={styles.container}>
+      <View style={{ marginTop: 50, paddingHorizontal:30 }}>
+      <Text style={{ textAlign: 'justify' }}>Sincronizar la información de tu aplicación con los datos almacenados en la nube. Esta sincronización te permite mantener la información actualizada según tus necesidades. Selecciona la opción deseada para comenzar.</Text>
+      </View>
       <SegmentedButtons
         style={{ marginTop: 50, paddingHorizontal:30 }}
         value={value}
