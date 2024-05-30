@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { Button, Menu, Divider, PaperProvider } from 'react-native-paper';
 import { List, Text, Icon, MD3Colors, DataTable, SegmentedButtons } from 'react-native-paper';
+
+
+import { useSQLiteContext } from "expo-sqlite/next";
 
 export default function Sincronizacion() {
   const [visible, setVisible] = React.useState(false);
@@ -9,7 +12,25 @@ export default function Sincronizacion() {
   const openMenu = () => setVisible(true);
   const closeMenu = () => setVisible(false);
   const [value, setValue] = React.useState('');
-
+  const [dbLoaded, setDbLoaded] = React.useState<boolean>(false);
+  const [transactions, setTransactions] = React.useState<any[]>([]);
+  
+  const db = useSQLiteContext();
+  
+  React.useEffect(() => {
+    db.withTransactionAsync(async () => {
+      await getData();
+    });
+  }, [db]);
+  
+  async function getData() {
+    const result = await db.getAllAsync<any>(
+      `SELECT * FROM Transactions ORDER BY date DESC;`
+    );
+    setTransactions(result);
+    console.log('transactions: ', transactions);
+  }
+  
   return (
     <View style={styles.container}>
       <View style={{ marginTop: 50, paddingHorizontal:30 }}>
@@ -52,6 +73,15 @@ export default function Sincronizacion() {
           </DataTable.Cell>
         </DataTable.Row>
       </DataTable>
+      <ScrollView>
+      {transactions.map((transaction, index) => (
+        <View key={index} style={{ paddingHorizontal:30 }}>
+          <Text>Date: {transaction.date}</Text>
+          <Text>Amount: {transaction.amount}</Text>
+          <Text>Description: {transaction.description}</Text>
+        </View>
+      ))}
+      </ScrollView>
     </View>
   );
 }
