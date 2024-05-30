@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Alert } from 'react-native';
 import { Button, Menu, Divider, PaperProvider } from 'react-native-paper';
 import { List, Text, Icon, MD3Colors, DataTable, SegmentedButtons } from 'react-native-paper';
 import { useStorageState } from "@/utils/storage-utils";
@@ -30,10 +30,9 @@ export default function Sincronizacion() {
       `SELECT * FROM Mesas;`
     );
     setTransactions(result);
-    console.log('Mesas: ', transactions);
   }
 
-  async function insertTransaction(data: any) {
+  async function insertMesas(data: any) {
     if (!Array.isArray(data)) {
       console.error("Error: data is not an array");
       return;
@@ -68,27 +67,101 @@ export default function Sincronizacion() {
       console.error("Error inserting transactions:", error);
     }
   }
+  
+  async function insertProductos(data: any) {
+    if (!Array.isArray(data)) {
+      console.error("Error: data is not an array");
+      return;
+    }
 
-  const handleOptionsChange = (newValue) => {
-    setOptions(newValue);
-    executeFunctionBasedOnOption(newValue);
-  };
+    try {
+      await db.withTransactionAsync(async () => {
+        await db.runAsync(`DELETE FROM Productos`);
 
-  const executeFunctionBasedOnOption = (value) => {
+        for (const producto of data) {
+          await db.runAsync(
+            `
+            INSERT INTO Productos (actual, categoria, cod, compuesto_variable, estado, familia, garantia, id_categoria, id_familia, id_marca, imagen, index, marca, nombre, precio_venta, variable_id, ver) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+            `,
+            [
+              producto.actual,
+              producto.categoria,
+              producto.cod,
+              producto.compuesto_variable,
+              producto.estado,
+              producto.familia,
+              producto.garantia,
+              producto.id_categoria,
+              producto.id_familia,
+              producto.id_marca,
+              producto.imagen,
+              producto.index,
+              producto.marca,
+              producto.nombre,
+              producto.precio_venta,
+              producto.variable_id,
+              producto.ver,
+            ]
+          );
+        }
+        await getData();
+      });
+    } catch (error) {
+      console.error("Error inserting transactions:", error);
+    }
+  }
+
+  const handleOptionsChange = (value:any) => {
+    let message = "";
     switch (value) {
       case 'general':
-        console.log('Valor seleccionado: General');
+        message = "¿Seguro desea borrar todas las tablas y actualizar la información?";
         break;
       case 'productos':
-        console.log('Valor seleccionado: Productos');
+        message = "¿Seguro desea borrar todos los productos y actualizar la información?";
         break;
       case 'mesas':
-        console.log('Valor seleccionado: Mesas');
-        console.log('session: ', session);
+        message = "¿Seguro desea borrar todas las mesas y actualizar la información?";
+        break;
+    }
+    Alert.alert(
+      "Confirmación",
+      message,
+      [
+        {
+          text: "Cancelar",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => {
+          setOptions(value);
+          executeFunctionBasedOnOption(value);
+        } }
+      ]
+    );
+  };
+
+  const executeFunctionBasedOnOption = (value:any) => {
+    switch (value) {
+      case 'general':
+
+        break;
+      case 'productos':
+        getDataAPI('productos?selectAll',
+        'bares',
+        { 'apiKey': session,
+          'fields': "precio_venta, familia, marca, imagen, categoria, actual",
+          'filters': "estado:1",
+          'group': "id"
+        })
+        .then(data => {
+          //insertProductos(data.data);
+        });
+        break;
+      case 'mesas':
         getDataAPI('mesas?selectAll', 'bares', {'apiKey': session})
         .then(data => {
-          console.log('data: ', data);
-          insertTransaction(data.data);
+          insertMesas(data.data);
         });
         break;
       default:
@@ -140,8 +213,9 @@ export default function Sincronizacion() {
       </DataTable>
       <ScrollView>
       {transactions.map((transaction, index) => (
-        <View key={index} style={{ paddingHorizontal:30 }}>
+        <View key={index} style={{ paddingHorizontal:30, marginTop:10 }}>
           <Text>Nombre: {transaction.nombre}</Text>
+          <Text>Total: {transaction.total}</Text>
         </View>
       ))}
       </ScrollView>
