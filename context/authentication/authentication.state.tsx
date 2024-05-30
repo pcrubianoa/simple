@@ -14,12 +14,12 @@ export function SessionProvider(props: { children: React.ReactNode }) {
         signIn: async (user,pass) => {
 
           getDataAPI('secure', 'bares', {'user':user, 'pass': pass})
-            .then(data => {
-              if (data.success) {
-                setSession(data.apiKey);
-                router.push("/(drawer)/Sincronizacion");
-              }
-            });
+          .then(data => {
+            if (data.success) {
+              setSession(data.apiKey);
+              router.push("/(drawer)/Sincronizacion");
+            }
+          });
 
           //router.push("/Introduction");
         },
