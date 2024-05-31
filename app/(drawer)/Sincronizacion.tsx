@@ -15,21 +15,30 @@ export default function Sincronizacion() {
   const closeMenu = () => setVisible(false);
   const [options, setOptions] = React.useState('');
   const [dbLoaded, setDbLoaded] = React.useState<boolean>(false);
-  const [transactions, setTransactions] = React.useState<any[]>([]);
+  const [mesas, setMesas] = React.useState<any[]>([]);
+  const [productos, setProductos] = React.useState<any[]>([]);
 
   const db = useSQLiteContext();
 
   React.useEffect(() => {
     db.withTransactionAsync(async () => {
-      await getData();
+      await selectMesas();
+      await selectProductos();
     });
   }, [db]);
 
-  async function getData() {
+  async function selectMesas() {
     const result = await db.getAllAsync<any>(
       `SELECT * FROM Mesas;`
     );
-    setTransactions(result);
+    setMesas(result);
+  }
+
+  async function selectProductos() {
+    const result = await db.getAllAsync<any>(
+      `SELECT * FROM Productos;`
+    );
+    setProductos(result);
   }
 
   async function insertMesas(data: any) {
@@ -61,13 +70,13 @@ export default function Sincronizacion() {
             ]
           );
         }
-        await getData();
+        await selectMesas();
       });
     } catch (error) {
       console.error("Error inserting transactions:", error);
     }
   }
-  
+
   async function insertProductos(data: any) {
     if (!Array.isArray(data)) {
       console.error("Error: data is not an array");
@@ -95,7 +104,6 @@ export default function Sincronizacion() {
               producto.id_familia,
               producto.id_marca,
               producto.imagen,
-              producto.index,
               producto.marca,
               producto.nombre,
               producto.precio_venta,
@@ -104,7 +112,7 @@ export default function Sincronizacion() {
             ]
           );
         }
-        await getData();
+        await selectProductos();
       });
     } catch (error) {
       console.error("Error inserting transactions:", error);
@@ -155,7 +163,8 @@ export default function Sincronizacion() {
           'group': "id"
         })
         .then(data => {
-          //insertProductos(data.data);
+          console.log('data: ', data);
+          insertProductos(data.data);
         });
         break;
       case 'mesas':
@@ -212,10 +221,10 @@ export default function Sincronizacion() {
         </DataTable.Row>
       </DataTable>
       <ScrollView>
-      {transactions.map((transaction, index) => (
+      {productos.map((mesa, index) => (
         <View key={index} style={{ paddingHorizontal:30, marginTop:10 }}>
-          <Text>Nombre: {transaction.nombre}</Text>
-          <Text>Total: {transaction.total}</Text>
+          <Text>Nombre: {mesa.nombre}</Text>
+          <Text>Total: {mesa.total}</Text>
         </View>
       ))}
       </ScrollView>

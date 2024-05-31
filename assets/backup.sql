@@ -29,10 +29,9 @@ CREATE TABLE Productos (
 	id_familia TEXT,
 	id_marca TEXT,
 	imagen TEXT,
-	index INTEGER,
 	marca TEXT,
 	nombre TEXT,
 	precio_venta TEXT,
 	variable_id TEXT,
-	ver TEXT,
+	ver TEXT
 );
